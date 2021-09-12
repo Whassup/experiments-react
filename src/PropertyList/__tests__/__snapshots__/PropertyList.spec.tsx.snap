@@ -1,0 +1,172 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PropertyListNoResults /> SHOULD render 1`] = `
+<DocumentFragment>
+  <section>
+    <h1>
+      Properties
+    </h1>
+    <p>
+      No results found please try another search.
+    </p>
+  </section>
+</DocumentFragment>
+`;
+
+exports[`<PropertyListWithData /> SHOULD render with mapped data 1`] = `
+<DocumentFragment>
+  <section>
+    <h1>
+      Properties
+    </h1>
+    <h2>
+      Displaying 
+      <strong>
+        3
+      </strong>
+       of 
+      <strong>
+        100
+      </strong>
+       total results.
+    </h2>
+    <section>
+      <article>
+        <h1>
+          <a
+            href="details/7-westview-court-springvale-south-3172-vic"
+          >
+            7 Westview Court, Springvale South
+          </a>
+        </h1>
+        <div>
+          <h2>
+            Property Attributes
+          </h2>
+          <dl>
+            <dt>
+              Beds
+            </dt>
+            <dd
+              aria-label="beds"
+            >
+              1
+            </dd>
+            <dt>
+              Baths
+            </dt>
+            <dd
+              aria-label="baths"
+            >
+              2
+            </dd>
+            <dt>
+              Carspaces
+            </dt>
+            <dd
+              aria-label="carSpaces"
+            >
+              3
+            </dd>
+          </dl>
+        </div>
+        <a
+          href="details/7-westview-court-springvale-south-3172-vic"
+        >
+          View details page
+        </a>
+      </article>
+      <article>
+        <h1>
+          <a
+            href="details/7-westview-court-springvale-south-3172-vic"
+          >
+            7 Westview Court, Springvale South
+          </a>
+        </h1>
+        <div>
+          <h2>
+            Property Attributes
+          </h2>
+          <dl>
+            <dt>
+              Beds
+            </dt>
+            <dd
+              aria-label="beds"
+            >
+              1
+            </dd>
+            <dt>
+              Baths
+            </dt>
+            <dd
+              aria-label="baths"
+            >
+              2
+            </dd>
+            <dt>
+              Carspaces
+            </dt>
+            <dd
+              aria-label="carSpaces"
+            >
+              3
+            </dd>
+          </dl>
+        </div>
+        <a
+          href="details/7-westview-court-springvale-south-3172-vic"
+        >
+          View details page
+        </a>
+      </article>
+      <article>
+        <h1>
+          <a
+            href="details/7-westview-court-springvale-south-3172-vic"
+          >
+            7 Westview Court, Springvale South
+          </a>
+        </h1>
+        <div>
+          <h2>
+            Property Attributes
+          </h2>
+          <dl>
+            <dt>
+              Beds
+            </dt>
+            <dd
+              aria-label="beds"
+            >
+              1
+            </dd>
+            <dt>
+              Baths
+            </dt>
+            <dd
+              aria-label="baths"
+            >
+              2
+            </dd>
+            <dt>
+              Carspaces
+            </dt>
+            <dd
+              aria-label="carSpaces"
+            >
+              3
+            </dd>
+          </dl>
+        </div>
+        <a
+          href="details/7-westview-court-springvale-south-3172-vic"
+        >
+          View details page
+        </a>
+      </article>
+    </section>
+  </section>
+</DocumentFragment>
+`;
