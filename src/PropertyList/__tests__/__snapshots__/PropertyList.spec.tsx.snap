@@ -75,6 +75,11 @@ exports[`<PropertyListWithData /> SHOULD render with mapped data 1`] = `
         >
           View details page
         </a>
+        <button
+          type="button"
+        >
+           Save
+        </button>
       </article>
       <article>
         <h1>
@@ -120,6 +125,11 @@ exports[`<PropertyListWithData /> SHOULD render with mapped data 1`] = `
         >
           View details page
         </a>
+        <button
+          type="button"
+        >
+           Save
+        </button>
       </article>
       <article>
         <h1>
@@ -165,8 +175,17 @@ exports[`<PropertyListWithData /> SHOULD render with mapped data 1`] = `
         >
           View details page
         </a>
+        <button
+          type="button"
+        >
+           Save
+        </button>
       </article>
     </section>
+    <h1>
+      Saved Properties
+    </h1>
+    <section />
   </section>
 </DocumentFragment>
 `;

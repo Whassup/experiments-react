@@ -1,10 +1,10 @@
 import { render, screen } from "@testing-library/react";
 import { createPropertyResultsData } from "../../PropertyCard/data";
 import {
-    PropertyList,
-    PropertyListNoResults,
-    PropertyListView,
-    PropertyListWithData
+  PropertyList,
+  PropertyListNoResults,
+  PropertyListView,
+  PropertyListWithData
 } from "../PropertyList";
 
 const propertiesData = createPropertyResultsData();
@@ -66,12 +66,13 @@ describe("<PropertyListView />", () => {
 
 describe("<PropertyList />", () => {
   const propertyCardsContent = "PropertyCards";
-  const PropertyCards = () => <>{propertyCardsContent}</>;
+  const savedPropertyCardsContent = "SavedPropertyCards";
 
   beforeEach(() => {
     render(
       <PropertyList
-        propertyCards={<PropertyCards />}
+        propertyCards={<>{propertyCardsContent}</>}
+        savedPropertyCards={<>{savedPropertyCardsContent}</>}
         totalCount={100}
         pageCount={10}
       />
@@ -88,6 +89,11 @@ describe("<PropertyList />", () => {
       name: "Displaying 10 of 100 total results.",
     });
     expect(resultSummary).toBeInTheDocument();
+  });
+
+  it("SHOULD display savedPropertyCards", () => {
+    const propertyCards = screen.getByText(savedPropertyCardsContent);
+    expect(propertyCards).toBeInTheDocument();
   });
 });
 

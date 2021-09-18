@@ -1,6 +1,7 @@
 import { FunctionComponent } from "react";
-import { PropertyResultsData } from "../PropertyCard/data";
+import { PropertyData, PropertyResultsData } from "../PropertyCard/data";
 import { FatPropertyCard } from "../PropertyCard/FatPropertyCard";
+import { useMutableSavedList } from "../useSavedList/useMutableSavedList";
 
 interface FatPropertyListProps {
   propertiesData: PropertyResultsData;
@@ -9,6 +10,7 @@ interface FatPropertyListProps {
 export const FatPropertyList: FunctionComponent<FatPropertyListProps> = ({
   propertiesData,
 }) => {
+  const [savedProperties, { isSaved, removeSavedItem, toggleSavedItem }] = useMutableSavedList([] as PropertyData[], (d) => d.property.id);
   const {
     results,
     pageInfo: { totalResultsCount },
@@ -16,7 +18,11 @@ export const FatPropertyList: FunctionComponent<FatPropertyListProps> = ({
   const pageCount = results.length;
   const totalCount = totalResultsCount;
   const propertyCards = results.map((data) => (
-    <FatPropertyCard key={data.property.id} data={data} />
+    <FatPropertyCard key={data.property.id} data={data} onSaveToggle={toggleSavedItem} saved={isSaved(data)}  />
+  ));
+
+  const savedPropertyCards = savedProperties.map((data) => (
+    <FatPropertyCard key={`save-${data.property.id}`} data={data} onSaveToggle={removeSavedItem} saved={true} />
   ));
 
   if (results.length) {
@@ -27,6 +33,8 @@ export const FatPropertyList: FunctionComponent<FatPropertyListProps> = ({
           Displaying {pageCount} of {totalCount} total results.
         </p>
         <section>{propertyCards}</section>
+        <h2>Saved Properties</h2>
+        <section>{savedPropertyCards}</section>
       </section>
     );
   }

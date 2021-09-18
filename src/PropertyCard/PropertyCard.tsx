@@ -1,50 +1,62 @@
 // Exhibit A: Fat dependencies
 
 import { FunctionComponent } from "react";
-import { data } from "./data";
 
 interface PropertyAttributesProps {
-    beds: number;
-    baths: number;
-    carSpaces: number;
+  beds: number;
+  baths: number;
+  carSpaces: number;
 }
 
-export const PropertyAttributes: FunctionComponent<PropertyAttributesProps> = ({ beds, baths, carSpaces}) => (<div>
+export const PropertyAttributes: FunctionComponent<PropertyAttributesProps> = ({
+  beds,
+  baths,
+  carSpaces,
+}) => (
+  <div>
     <h2>Property Attributes</h2>
     <dl>
-        <dt>Beds</dt>
-        <dd aria-label="beds">{beds}</dd>
+      <dt>Beds</dt>
+      <dd aria-label="beds">{beds}</dd>
 
-        <dt>Baths</dt>
-        <dd aria-label="baths">{baths}</dd>
+      <dt>Baths</dt>
+      <dd aria-label="baths">{baths}</dd>
 
-        <dt>Carspaces</dt>
-        <dd aria-label="carSpaces">{carSpaces}</dd>
+      <dt>Carspaces</dt>
+      <dd aria-label="carSpaces">{carSpaces}</dd>
     </dl>
-</div>);
+  </div>
+);
 
-interface PropertyCardProps {
-    title: string;
-    href: string;
-    attributes: React.ReactNode;
+export interface PropertyCardProps {
+  title: string;
+  href: string;
+  attributes?: React.ReactNode;
+  onSaveToggle: () => void;
+  saved?: boolean;
 }
 
-export const PropertyCard: FunctionComponent<PropertyCardProps> = ({ title, attributes, href }) => {
-    return <article>
-        <h1><a href={href}>{title}</a></h1>
-        { attributes }
-        <a href={href}>View details page</a>
+export const PropertyCard: FunctionComponent<PropertyCardProps> = ({
+  title,
+  attributes,
+  href,
+  saved,
+  onSaveToggle,
+} ) => {
+  return (
+    <article>
+      <h1>
+        <a href={href}>{title}</a>
+      </h1>
+      {attributes}
+      <a href={href}>View details page</a>
+      <button type="button" onClick={onSaveToggle}>
+        {saved ? "Remove" : " Save"}
+      </button>
     </article>
-}
+  );
+};
 
-
-interface PropertyCardWithDataProps {
-    data: typeof data;
-}
-export const PropertyCardWithData: FunctionComponent<PropertyCardWithDataProps> = ({ data }) => {
-    const { property, propertyDetailsPage } = data;
-    const { address: { shortAddressDisplay }, attributes: { beds, baths, carSpaces } } = property;
-    const { slug } = propertyDetailsPage;
-
-    return <PropertyCard title={shortAddressDisplay} href={slug} attributes={<PropertyAttributes beds={beds} baths={baths} carSpaces={carSpaces} />} />
+PropertyCard.defaultProps = {
+  saved: false
 }

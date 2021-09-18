@@ -1,19 +1,21 @@
 // Exhibit A: Fat dependencies
 
 import { FunctionComponent } from "react";
-import { data } from "./data";
+import { PropertyData } from "./data";
 
 
-interface PropertyCardProps {
-    data: typeof data;
+interface FatPropertyCardProps {
+    data: PropertyData;
+    onSaveToggle: (propertyData: PropertyData) => void;
+    saved?: boolean;
 }
 
-export const FatPropertyCard: FunctionComponent<PropertyCardProps> = ({ data }) => {
+export const FatPropertyCard: FunctionComponent<FatPropertyCardProps> = ({ data, saved, onSaveToggle}) => {
     const { property, propertyDetailsPage } = data;
     const { address: { shortAddressDisplay }, attributes: { beds, baths, carSpaces } } = property;
     const { slug } = propertyDetailsPage;
 
-    return <article>
+    return <article data-testid={`card-${property.id}${saved ? "--saved" : ""}`} >
         <h1><a href={slug}>{shortAddressDisplay}</a></h1>
         <div>
             <h2>Property Attributes</h2>
@@ -29,10 +31,10 @@ export const FatPropertyCard: FunctionComponent<PropertyCardProps> = ({ data }) 
             </dl>
         </div>
         <a href={slug}>View details page</a>
+        <button data-testid={`save-${property.id}`} type="button" onClick={() => onSaveToggle(data)}>{  saved ? "Remove" : "Save" }</button>
     </article>
 }
 
-
-export default function FatPropertyCardWithData () {
-    return <FatPropertyCard data={data} />
+FatPropertyCard.defaultProps = {
+    saved : false
 }
