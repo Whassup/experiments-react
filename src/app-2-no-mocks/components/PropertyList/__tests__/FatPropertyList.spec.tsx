@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { createPropertyResultsData } from "../../PropertyCard/data";
+import { createPropertyResultsData } from "../../data";
 import { FatPropertyList } from "../FatPropertyList";
 
 const propertiesData = createPropertyResultsData();

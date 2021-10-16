@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { createPropertyResultsData } from "../../PropertyCard/data";
+import { createPropertyResultsData } from "../../data";
 import {
   PropertyList,
   PropertyListNoResults,
@@ -12,7 +12,7 @@ const propertiesData = createPropertyResultsData();
 describe("<PropertyListWithData />", () => {
   it("SHOULD render with mapped data", () => {
     const { asFragment } = render(
-      <PropertyListWithData propertiesData={propertiesData} />
+      <PropertyListWithData />
     );
     expect(asFragment()).toMatchSnapshot();
   });

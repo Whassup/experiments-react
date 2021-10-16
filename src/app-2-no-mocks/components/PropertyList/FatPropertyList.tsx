@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import { PropertyData, PropertyResultsData } from "../PropertyCard/data";
+import { PropertyData, PropertyResultsData } from "../data";
 import { FatPropertyCard } from "../PropertyCard/FatPropertyCard";
 import { useMutableSavedList } from "../useSavedList/useMutableSavedList";
 

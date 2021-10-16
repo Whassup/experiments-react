@@ -2,32 +2,6 @@
 
 import { FunctionComponent } from "react";
 
-interface PropertyAttributesProps {
-  beds: number;
-  baths: number;
-  carSpaces: number;
-}
-
-export const PropertyAttributes: FunctionComponent<PropertyAttributesProps> = ({
-  beds,
-  baths,
-  carSpaces,
-}) => (
-  <div>
-    <h2>Property Attributes</h2>
-    <dl>
-      <dt>Beds</dt>
-      <dd aria-label="beds">{beds}</dd>
-
-      <dt>Baths</dt>
-      <dd aria-label="baths">{baths}</dd>
-
-      <dt>Carspaces</dt>
-      <dd aria-label="carSpaces">{carSpaces}</dd>
-    </dl>
-  </div>
-);
-
 export interface PropertyCardProps {
   title: string;
   href: string;
@@ -40,9 +14,9 @@ export const PropertyCard: FunctionComponent<PropertyCardProps> = ({
   title,
   attributes,
   href,
-  saved,
+  saved = false,
   onSaveToggle,
-} ) => {
+}) => {
   return (
     <article>
       <h1>
@@ -56,7 +30,3 @@ export const PropertyCard: FunctionComponent<PropertyCardProps> = ({
     </article>
   );
 };
-
-PropertyCard.defaultProps = {
-  saved: false
-}

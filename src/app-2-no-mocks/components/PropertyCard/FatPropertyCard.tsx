@@ -1,7 +1,7 @@
 // Exhibit A: Fat dependencies
 
 import { FunctionComponent } from "react";
-import { PropertyData } from "./data";
+import { PropertyData } from "../../../data";
 
 
 interface FatPropertyCardProps {
