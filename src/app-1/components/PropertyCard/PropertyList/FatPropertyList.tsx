@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
-import { PropertyData, PropertyResultsData } from "../data";
-import { FatPropertyCard } from "../PropertyCard/FatPropertyCard";
-import { useMutableSavedList } from "../useSavedList/useMutableSavedList";
+import { PropertyData, PropertyResultsData } from "../../../../data";
+import { useMutableSavedList } from "../../../hooks/useSavedList/useMutableSavedList";
+import { FatPropertyCard } from "../FatPropertyCard";
 
 interface FatPropertyListProps {
   propertiesData: PropertyResultsData;
