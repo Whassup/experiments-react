@@ -17,6 +17,8 @@ const publishErrorToMonitoringTools = (error: any) => {
 export const PropertiesPageContainer: FunctionComponent = () => {
   const [savedProperties, { isSaved, removeSavedItem, toggleSavedItem }] =
     useSavedList(useState<PropertyData[]>([]), (d) => d.property.id);
+  const [_expandedProperties, { isSaved: isExpanded, toggleSavedItem: toggleExpandedItem }] =
+    useSavedList(useState<string[]>([]), (d) => d);
   const { data, loading, error } = useQuery("GetPropertyResults");
 
   useEffect(() => {
@@ -26,12 +28,12 @@ export const PropertiesPageContainer: FunctionComponent = () => {
   return getPropertiesPageLayoutWithData(
     getPropertyListWithData(
       getPropertyCardWithData(
-        getPropertyAttributesWithData,
+        getPropertyAttributesWithData(isExpanded, toggleExpandedItem),
         toggleSavedItem,
         isSaved
       ),
       getPropertyCardWithData(
-        getPropertyAttributesWithData,
+        getPropertyAttributesWithData(isExpanded, toggleExpandedItem),
         removeSavedItem,
         () => true
       )
