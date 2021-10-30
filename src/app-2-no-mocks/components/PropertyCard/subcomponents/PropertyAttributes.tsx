@@ -12,7 +12,7 @@ export const PropertyAttributes: FunctionComponent<PropertyAttributesProps> = ({
   beds,
   baths,
   carSpaces,
-  expanded,
+  expanded = true,
   onExpandToggle,
 }) => (
   <div>

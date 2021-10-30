@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { PropertyAttributes, PropertyCard } from "../PropertyCard";
+import { PropertyCard } from "../PropertyCard";
 
 
 describe("<PropertyCard />", () => {
@@ -80,32 +80,6 @@ describe("<PropertyCard />", () => {
                 userEvent.click(button);
                 expect(onSaveToggle).toHaveBeenCalledTimes(1);
             });
-        });
-    });
-});
-
-describe("<PropertyAttributes />", () => {
-    describe("render", () => {
-        const beds = 0;
-        const baths = 1;
-        const carspaces = 2;
-        beforeEach(() => {
-            render(<PropertyAttributes beds={beds} baths={baths} carSpaces={carspaces} />);
-        });
-
-        it("SHOULD display beds count", () => {
-            const bedsCount = screen.getByRole("definition", { name: "beds" });
-            expect(bedsCount).toHaveTextContent(String(beds));
-        });
-
-        it("SHOULD display baths count", () => {
-            const bathsCount = screen.getByRole("definition", { name: "baths" });
-            expect(bathsCount).toHaveTextContent(String(baths));
-        });
-
-        it("SHOULD display carSpaces count", () => {
-            const carSpacesCount = screen.getByRole("definition", { name: "carSpaces" });
-            expect(carSpacesCount).toHaveTextContent(String(carspaces));
         });
     });
 });
